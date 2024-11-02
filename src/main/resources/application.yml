@@ -1,0 +1,31 @@
+server:
+  port: 8081
+  error:
+    include-message: always
+
+# Configuración de Spring
+spring:
+  # Configuración de Flyway para la migración de base de datos
+  flyway:
+    enabled: true
+    baselineVersion: 1
+    locations: classpath:db/migration
+    sqlMigrationSuffixes: .sql
+    baselineOnMigrate: true
+    sqlMigrationPrefix: V
+    schemas: public
+
+  # Configuración de JPA
+  jpa:
+    open-in-view: false
+
+  # Configuración de recursos estáticos
+  resources:
+  static-locations: classpath:/static/  # Ruta para los recursos estáticos
+  add-mappings: true  # Habilitar mapeo de recursos estáticos
+
+  datasource:
+    url: jdbc:postgresql://ep-noisy-term-a58sw1hq.us-east-2.aws.neon.tech:5432/neondb
+    username: neondb_owner
+    password: zoDE0XfkFwV3
+    driver-class-name: org.postgresql.Driver  # Asegúrate de que esta línea esté incluida correctamente
