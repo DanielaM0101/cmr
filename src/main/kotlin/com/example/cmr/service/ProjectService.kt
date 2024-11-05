@@ -11,7 +11,6 @@ import jakarta.transaction.Transactional
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import java.time.LocalDate
-import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 @Service
@@ -37,7 +36,7 @@ class ProjectService {
     @Transactional
     fun getUserById(id: Long): User? {
         val user = userRepository.findById(id).orElse(null)
-        user?.exerciseSessions?.size // Esto inicializa la colección
+        user?.exerciseSessions?.size
         return user
     }
 
